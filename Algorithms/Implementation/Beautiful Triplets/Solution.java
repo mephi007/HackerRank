@@ -1,5 +1,9 @@
 //Problem: https://www.hackerrank.com/challenges/beautiful-triplets
 //Java 8
+
+/* Hi, I am editing this code for the scenario when repeated digits are present.
+* Hopefully, you will see and review it.
+*/
 import java.io.*;
 import java.util.*;
 
@@ -33,10 +37,22 @@ public class Solution {
         {
             if(values.contains(digit+d) && values.contains(digit+(2*d)))
             {
-                beautifulTriplets++;
+                //beautifulTriplets++;
+                int repeat = countRepeat(arr, digit);
+				beautifulTriplets += repeat;
             }
         }
         
         System.out.println(beautifulTriplets);
     }
+    
+    private static int countRepeat(int[] arr, int digit) {
+		// TODO Auto-generated method stub
+		int count = 0;
+		for(int i =0; i<arr.length; i++) {
+			if(arr[i] == digit) count++;
+		}
+		
+		return count;
+	}
 }
